@@ -20,24 +20,24 @@ gulp.task('serve', function () {
 gulp.task('buildCSS', function () {
 
     return gulp.src(['app/scss/*.scss']).
-        pipe(sass({
-            includePaths: ['node_modules']
-        })).
-        pipe(concat('main.css')).
-        pipe(cleanCSS()).
-        pipe(gulp.dest("app/dest/styles")).
-        pipe(browserSync.stream());
+    pipe(sass({
+        includePaths: ['node_modules']
+    })).
+    pipe(concat('main.css')).
+    pipe(cleanCSS()).
+    pipe(gulp.dest("app/dest/styles")).
+    pipe(browserSync.stream());
 
 });
 
 gulp.task('buildJS', function () {
 
     return gulp.src("app/scripts/*.js").
-        pipe(concat('script.js')).
-        pipe(minify()).
-        pipe(gulp.dest("app/dest/script")).
-        pipe(browserSync.stream());
+    pipe(concat('script.js')).
+    // pipe(minify()).
+    pipe(gulp.dest("app/dest/script")).
+    pipe(browserSync.stream());
 
 });
 
-gulp.task('start', gulp.series('buildCSS', 'buildJS', 'serve'));
+gulp.task('default', gulp.series('buildCSS', 'buildJS', 'serve'));

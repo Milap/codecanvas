@@ -1,1 +1,1 @@
-"use strict";
+"use strict";const log=s=>console.log(s);class Person{}
